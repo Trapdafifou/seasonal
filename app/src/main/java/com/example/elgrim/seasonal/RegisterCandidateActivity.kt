@@ -1,12 +1,10 @@
 package com.example.elgrim.seasonal
 
-import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat
-import android.view.Window
-import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_register_candidate.*
+import java.util.*
+import kotlin.collections.ArrayList
 import com.example.elgrim.seasonal.helpers.FormValidate
 
 
@@ -19,13 +17,17 @@ class RegisterCandidateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_candidate)
+
+        buttonSubmitRegisterCandidate.setOnClickListener {
+            val registerData = this.getData()
+        }
     }
 
-    private fun getData(): Map<String, String?> {
-        val lastName: String? = registerEditLastName.text.toString()
-        val firstName: String? = registerEditFirstName.text.toString()
-        val email: String? = registerEditEmail.text.toString()
-        val password: String? = registerEditPassword.text.toString()
+    private fun getData() {
+        val lastName: String? = editLastName.text.toString()
+        val firstName: String? = editFirstName.text.toString()
+        val email: String? = editEmail.text.toString()
+        val password: String? = editPassword.text.toString()
 
         lateinit var data: Map<String, String?>
 
@@ -33,28 +35,14 @@ class RegisterCandidateActivity : AppCompatActivity() {
                 "firstName" to firstName,
                 "email" to email,
                 "password" to password)
-
-        return data
+        validateData(data)
     }
 
-    private fun validateData(data: Map<String, String?>): Boolean {
+    private fun validateData(data: Map<String, String?>) {
         var validator = FormValidate()
-        val errorTitle = "Erreur lors de l'enregistrement"
 
-        for ((key, value) in data) {
-            if (!(value ?: "").isNotEmpty()) {
-                validator.errorHandler(this, errorTitle,
-                        "Veuillez remplir le $key")
-                return false
-            }
+        if(data.getNotNull("email").isNotEmpty() && validator.isEmailValid(data.getNotNull("email"))) {
+            println(data.getNotNull("email"))
         }
-        var isValid = validator.isEmailValid(data.getNotNull("email"))
-        if (!validator.isEmailValid(data.getNotNull("email"))) {
-            validator.errorHandler(this, errorTitle,
-                    "Veuillez remplir un email valide")
-            return false
-        }
-
-        return true
     }
 }
