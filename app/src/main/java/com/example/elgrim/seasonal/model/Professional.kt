@@ -3,10 +3,10 @@ package com.example.elgrim.seasonal.model
 import android.os.Parcel
 import android.os.Parcelable
 
-class Professional: User, Parcelable {
+public class Professional: User, Parcelable {
     lateinit var entreprise_id: Number
 
-    constructor(id: Number, lastname: String, firstname: String, email: String, password: String, entreprise_id: Number): super(id, lastname, firstname, email, password) {
+    constructor(id: Number, lastname: String, firstname: String, email: String, password: String, token: String, entreprise_id: Number): super(id, lastname, firstname, email, password, token) {
         this.entreprise_id = entreprise_id
     }
 
