@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".candidate.CandidateDetail" />
         <activity android:name=".NavigationManager"></activity>
+        <activity android:name=".RegisterCandidateActivity"></activity>
     </application>
 
 </manifest>
