@@ -26,7 +26,10 @@ class LoginActivity : AppCompatActivity() {
             val password = login_password.text
 
             if  (email.isNotEmpty() && password.isNotEmpty() ) {
-                val jsonObject = JSONObject()
+                val intent = Intent(this, CandidateList::class.java)
+                startActivity(intent)
+
+/*                val jsonObject = JSONObject()
                 jsonObject.put("email", email)
                 jsonObject.put("password", password)
 
@@ -50,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                 )
 
-                HttpSingleton.getInstance(this).addToRequestQueue(objectRequest)
+                HttpSingleton.getInstance(this).addToRequestQueue(objectRequest)*/
             }else {
                 alert("Les champs email et mot de passe son obligratoire") {
                     noButton {  }

@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CandidatelList" />
+        <activity android:name=".candidate.CandidateList" />
         <activity android:name=".candidate.CandidateDetail"></activity>
     </application>
 
