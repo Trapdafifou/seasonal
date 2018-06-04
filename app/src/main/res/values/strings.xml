@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">seasonal</string>
+    <string name="login_email">adresse mail</string>
+    <string name="login_password">Mot de passe</string>
+    <string name="login_submit">Connexion</string>
+    <string name="login_sign_in">Sign up for seasonal</string>
+    <string name="error_login">Can’t log in ?</string>
 </resources>

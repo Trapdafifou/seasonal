@@ -22,7 +22,7 @@ class Candidate: User, Parcelable {
     lateinit var description: String
     lateinit var profile_picture_url: String
 
-    constructor(id: Number, lastname: String, firstname: String, email: String, password: String, year_exp: Number, available_at: Date, job_id: Number, profile_view_count: Number, wage_claim: Number, description: String, profile_picture_url: String) : super(id, lastname, firstname, email, password) {
+    constructor(id: Number, lastname: String, firstname: String, email: String, password: String, token: String, year_exp: Number, available_at: Date, job_id: Number, profile_view_count: Number, wage_claim: Number, description: String, profile_picture_url: String) : super(id, lastname, firstname, email, password, token) {
         this.year_exp = year_exp
         this.available_at = available_at
         this.job_id = job_id
