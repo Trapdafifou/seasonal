@@ -27,31 +27,27 @@ class RegisterCandidateActivity : AppCompatActivity() {
         val email: String? = registerEditEmail.text.toString()
         val password: String? = registerEditPassword.text.toString()
 
-        lateinit var data: Map<String, String?>
-
-        data = mapOf("lastName" to lastName,
+        return mapOf("lastName" to lastName,
                 "firstName" to firstName,
                 "email" to email,
                 "password" to password)
-
-        return data
     }
 
     private fun validateData(data: Map<String, String?>): Boolean {
         var validator = FormValidate()
-        val errorTitle = "Erreur lors de l'enregistrement"
+        val errorTitle = resources.getString(R.string.validationFormError)
 
         for ((key, value) in data) {
             if (!(value ?: "").isNotEmpty()) {
                 validator.errorHandler(this, errorTitle,
-                        "Veuillez remplir le $key")
+                         resources.getString(R.string.validationWrong) + key)
                 return false
             }
         }
         var isValid = validator.isEmailValid(data.getNotNull("email"))
         if (!validator.isEmailValid(data.getNotNull("email"))) {
             validator.errorHandler(this, errorTitle,
-                    "Veuillez remplir un email valide")
+                    resources.getString(R.string.validationEmailWrong))
             return false
         }
 
