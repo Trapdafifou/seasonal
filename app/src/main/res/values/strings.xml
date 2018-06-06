@@ -44,4 +44,8 @@
     <string name="registerCandidateEuro">€</string>
     <string name="registerCandidateSalaryBrut">bruts</string>
     <string name="registrationCandidateExperienceUnit">Année(s)</string>
+    <string name="validationEmailWrong">Veuillez remplir un email valide</string>
+    <string name="validationWrong">Veuillez remplir le</string>
+    <string name="baseDateInput">--/--</string>
+    <string name="validationFormError">Erreur lors de l\'enregistrement</string>
 </resources>

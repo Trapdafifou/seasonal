@@ -16,23 +16,25 @@ import java.util.Locale
 class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     object DataPopulate {
-        val experienceValues: List<Number> = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
-        val wageValues: List<Number> = arrayListOf(
-                500,
-                1000,
-                1500,
-                2000,
-                2500,
-                3000
-        )
+        val experienceValues: MutableList<Number> = arrayListOf()
+        val wageValues: MutableList<Number> = arrayListOf()
     }
+
     var calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_candidate2)
 
-        registerJobDateSpinner.text = "--/--"
+        for (i in 1..12) {
+            DataPopulate.experienceValues.add(i)
+        }
+
+        for (i in 500..3000 step 500) {
+            DataPopulate.wageValues.add(i)
+        }
+
+        registerJobDateSpinner.text = resources.getString(R.string.baseDateInput)
 
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
             override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
@@ -63,11 +65,11 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
         spinner.setOnItemSelectedListener(this)
 
         // Create an ArrayAdapter using a simple spinner layout and languages array
-        val aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, populate_item)
+        val Adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, populate_item)
         // Set layout to use when the list of choices appear
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         // Set Adapter to Spinner
-        spinner.setAdapter(aa)
+        spinner.setAdapter(Adapter)
 
     }
 
@@ -82,6 +84,6 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
     private fun updateDateInView() {
         val myFormat = "dd/MM" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.FRENCH)
-        registerJobDateSpinner!!.text = sdf.format(calendar.getTime())
+        registerJobDateSpinner.text = sdf.format(calendar.getTime())
     }
 }
