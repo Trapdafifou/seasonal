@@ -33,6 +33,7 @@ class CandidateAdapterList (val candidate: Candidate) : AbstractItem<CandidateAd
             itemView.professional_item_date.text = null
             itemView.professional_item_name.text = null
             itemView.professional_item_job.text = null
+            itemView.professional_item_weight.text = null
         }
 
         @RequiresApi(Build.VERSION_CODES.O)
@@ -42,6 +43,7 @@ class CandidateAdapterList (val candidate: Candidate) : AbstractItem<CandidateAd
             itemView.professional_item_exp.text = candidate?.year_exp.toString() + " années d'expériences"
             itemView.professional_item_date.text = format(candidate?.available_at)
             itemView.professional_item_job.text = candidate?.job_name
+            itemView.professional_item_weight.text = candidate?.wage_claim.toString() + "€"
             Picasso.get().load(candidate?.profile_picture_url).circle().into(itemView.professional_item_img)
         }
 

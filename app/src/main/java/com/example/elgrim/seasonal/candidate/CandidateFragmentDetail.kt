@@ -22,8 +22,8 @@ class CandidateFragmentDetail: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val candidates = arrayListOf<Candidate>()
-        candidates.add(Candidate(1, "alexandre", "vagnair", "alexandre.vagniar@hetic.net", "eaeaze", "ezaeze", 12, Date(), "cuisine", 2, 2000, "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est ", "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"))
-        candidates.add(Candidate(1, "alexandre", "vagnair", "alexandre.vagniar@hetic.net", "eaeaze", "ezaeze", 12, Date(), "cuisine", 2, 2000, "dqsdqd", "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"))
+        candidates.add(Candidate(1, "alexandre", "vagnair", "alexandre.vagniar@hetic.net", "eaeaze", "ezaeze", 2, Date(), "cuisine", 2, 2000, "Je m’appelle Alexandre et je recherche un petit job pour financer mes études. J’ai déjà travaillé dans plusieurs établissements ! ", "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"))
+        candidates.add(Candidate(1, "alexandre", "vagnair", "alexandre.vagniar@hetic.net", "eaeaze", "ezaeze", 2, Date(), "cuisine", 2, 2000, "Je m’appelle Alexandre et je recherche un petit job pour financer mes études. J’ai déjà travaillé dans plusieurs établissements ! ", "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"))
 
         professional_recycler_detail.layoutManager = LinearLayoutManager(context)
         val itemAdapter = FastItemAdapter<CandidateAdapterDetail>()

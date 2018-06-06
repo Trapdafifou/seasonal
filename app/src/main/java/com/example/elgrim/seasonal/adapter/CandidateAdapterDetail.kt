@@ -42,12 +42,12 @@ class CandidateAdapterDetail (val candidate: Candidate) : AbstractItem<Candidate
         override fun bindView(item: CandidateAdapterDetail?, payloads: MutableList<Any>?) {
             val candidate = item?.candidate
             itemView.candidate_detail_name.text = candidate?.firstname
-            itemView.candidate_detail_exp.text = candidate?.year_exp.toString() + " années d'expériences"
+            itemView.candidate_detail_exp.text = candidate?.year_exp.toString() + " années d'xp"
             itemView.candidate_detail_date.text = format(candidate?.available_at)
             itemView.candidate_detail_job.text = candidate?.job_name
             itemView.candidate_detail_place.text = "Paris"
             itemView.candidate_detail_desc.text = candidate?.description
-            itemView.candidate_detail_weight.text = candidate?.wage_claim.toString()
+            itemView.candidate_detail_weight.text = candidate?.wage_claim.toString() + "€"
             Picasso.get().load(candidate?.profile_picture_url).circle().into(itemView.candidate_detail_image)
         }
 
