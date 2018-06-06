@@ -45,11 +45,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     intent.putExtra("token", datas)
                     startActivity(intent)
                 } else {
-                    alert(R.string.login_miss_input) {
+                    alert(R.string.login_error_request) {
                         noButton { }
                     }.show()
                 }
             }
+        } else {
+            alert(R.string.login_miss_input) {
+                noButton { }
+            }.show()
         }
     }
 }
