@@ -22,37 +22,37 @@
         app:layout_constraintVertical_bias="0.0">
 
         <EditText
-            android:id="@+id/editLastName"
+            android:id="@+id/registerEditLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            tools:text="Name" />
 
         <EditText
-            android:id="@+id/editFirstName"
+            android:id="@+id/registerEditFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            tools:text="Name" />
 
         <EditText
-            android:id="@+id/editEmail"
+            android:id="@+id/registerEditEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/editPassword"
+            android:id="@+id/registerEditPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/buttonSubmitRegisterCandidate"
+            android:id="@+id/registerButtonSubmitRegisterCandidate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="0dp"
