@@ -1,7 +1,11 @@
 package com.example.elgrim.seasonal
 
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat
+import android.view.Window
+import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_register_candidate.*
 import com.example.elgrim.seasonal.helpers.FormValidate
 
@@ -15,10 +19,6 @@ class RegisterCandidateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_candidate)
-
-        registerButtonSubmitRegisterCandidate.setOnClickListener {
-            val registerData = validateData(getData())
-        }
     }
 
     private fun getData(): Map<String, String?> {
