@@ -5,8 +5,6 @@ import android.os.Parcelable
 
 @Parcelize
 data class Job(
-        var id: Number,
-        var lastname: String,
-        var firstname: String,
-        var email: String
+        var id: Int,
+        var name: String
 ) : Parcelable

@@ -22,8 +22,8 @@ class CandidateFragmentDetail: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val candidates = arrayListOf<Candidate>()
-        //candidates.add(Candidate(1, "alexandre", "vagnair", "alexandre.vagniar@hetic.net", "eaeaze", "ezaeze", 2, Date(), "cuisine", 2, 2000, "Je m’appelle Alexandre et je recherche un petit job pour financer mes études. J’ai déjà travaillé dans plusieurs établissements ! ", "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"))
-        //candidates.add(Candidate(1, "alexandre", "vagnair", "alexandre.vagniar@hetic.net", "eaeaze", "ezaeze", 2, Date(), "cuisine", 2, 2000, "Je m’appelle Alexandre et je recherche un petit job pour financer mes études. J’ai déjà travaillé dans plusieurs établissements ! ", "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"))
+        candidates.add(Candidate(1, "alexandre", "vagnair", "alexandre.vagniar@hetic.net", "eaeaze", "ezaeze", 2, Date(), "cuisine", 2, 2000, "Je m’appelle Alexandre et je recherche un petit job pour financer mes études. J’ai déjà travaillé dans plusieurs établissements ! ", "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"))
+        candidates.add(Candidate(1, "alexandre", "vagnair", "alexandre.vagniar@hetic.net", "eaeaze", "ezaeze", 2, Date(), "cuisine", 2, 2000, "Je m’appelle Alexandre et je recherche un petit job pour financer mes études. J’ai déjà travaillé dans plusieurs établissements ! ", "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"))
 
         professional_recycler_detail.layoutManager = LinearLayoutManager(context)
         val itemAdapter = FastItemAdapter<CandidateAdapterDetail>()
