@@ -37,13 +37,38 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/container"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="418dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="20dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabs" />
+        app:layout_constraintTop_toBottomOf="@+id/candidate_filter_date" />
+
+    <TextView
+        android:id="@+id/candidate_filter_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/candidate_search_at"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabs"
+        tools:text="@string/candidate_search_at" />
+
+    <TextView
+        android:id="@+id/candidate_filter_date"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="date"
+        android:textSize="16dp"
+        android:text="__/__"
+        app:layout_constraintStart_toStartOf="@+id/candidate_filter_text"
+        app:layout_constraintTop_toBottomOf="@+id/candidate_filter_text"
+        tools:text="__/__" />
 
 </android.support.constraint.ConstraintLayout>
