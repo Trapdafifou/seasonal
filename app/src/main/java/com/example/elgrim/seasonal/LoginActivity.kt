@@ -26,7 +26,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        Log.d("view", view.toString())
         val email = login_email.text
         val password = login_password.text
 
