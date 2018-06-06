@@ -28,9 +28,8 @@
             android:label="@string/title_activity_candidate_list_fragmentmain"
             android:theme="@style/seasonal"></activity>
         <activity android:name=".RegisterCandidateActivity"></activity>
-        <activity android:name=".NavigationManager"></activity>
-        <activity android:name=".RegisterCandidateActivity"></activity>
         <activity android:name=".RegisterCandidate2Activity"></activity>
+        <activity android:name=".NavigationManager"></activity>
     </application>
 
 </manifest>
