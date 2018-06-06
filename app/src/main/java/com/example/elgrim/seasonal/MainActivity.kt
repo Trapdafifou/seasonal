@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val registerIntent = Intent(this, RegisterCandidateActivity::class.java)
+        val registerIntent = Intent(this, RegisterCandidate2Activity::class.java)
         startActivity(registerIntent)
     }
 }
