@@ -1,27 +1,28 @@
 package com.example.elgrim.seasonal
 
 import android.content.Intent
-import android.content.res.Resources
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
 import com.example.elgrim.seasonal.http.APIController
 import com.example.elgrim.seasonal.http.ServiceVolley
+import com.example.elgrim.seasonal.utils.PreferenceHelper
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.alert
 import org.json.JSONObject
-
+import com.example.elgrim.seasonal.utils.PreferenceHelper.get
+import com.example.elgrim.seasonal.utils.PreferenceHelper.set
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
+
+
+    private lateinit var prefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        prefs = PreferenceHelper.defaultPrefs(this)
         login_button.setOnClickListener(this)
     }
 
@@ -38,11 +39,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             params.put("email", email)
             params.put("password", password)
 
-            apiController.post("rest-auth/login/", params) { response ->
+            apiController.post("rest-auth/login/", null, params) { response ->
                 if (response != null) {
-                    val datas = response.get("key").toString()
-                    val intent = Intent(this, CandidateList::class.java)
-                    intent.putExtra("token", datas)
+                    prefs[Constants.TOKEN] = response.get("key")
+                    val intent = Intent(this, CandidateListActivity::class.java)
                     startActivity(intent)
                 } else {
                     alert(R.string.login_error_request) {

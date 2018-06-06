@@ -1,11 +1,10 @@
 package com.example.elgrim.seasonal.model
 
-
-import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import android.os.Parcelable
 
 @Parcelize
-data class User(
+data class Job(
         var id: Number,
         var lastname: String,
         var firstname: String,

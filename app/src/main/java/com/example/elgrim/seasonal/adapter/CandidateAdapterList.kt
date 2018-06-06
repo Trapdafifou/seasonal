@@ -39,12 +39,12 @@ class CandidateAdapterList (val candidate: Candidate) : AbstractItem<CandidateAd
         @RequiresApi(Build.VERSION_CODES.O)
         override fun bindView(item: CandidateAdapterList?, payloads: MutableList<Any>?) {
             val candidate = item?.candidate
-            itemView.professional_item_name.text = candidate?.firstname
+            itemView.professional_item_name.text = candidate?.user?.firstname
             itemView.professional_item_exp.text = candidate?.year_exp.toString() + " années d'expériences"
             itemView.professional_item_date.text = format(candidate?.available_at)
             itemView.professional_item_job.text = candidate?.job_name
             itemView.professional_item_weight.text = candidate?.wage_claim.toString() + "€"
-            Picasso.get().load(candidate?.profile_picture_url).circle().into(itemView.professional_item_img)
+            Picasso.get().load(candidate?.profile_picture).circle().into(itemView.professional_item_img)
         }
 
     }
