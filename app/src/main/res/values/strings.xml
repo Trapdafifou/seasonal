@@ -3,8 +3,10 @@
     <string name="login_email">adresse mail</string>
     <string name="login_password">Mot de passe</string>
     <string name="login_submit">Connexion</string>
-    <string name="login_sign_in">Sign up for seasonal</string>
-    <string name="error_login">Can’t log in ?</string>
+    <string name="login_sign_in">Inscription</string>
+    <string name="error_login">Probléme de connexion ? </string>
+    <string name="login_miss_input">Les champs email et mot de passe son obligratoire</string>
+    <string name="login_error_request">Une erreur est survenu veuillez réassayer plus tard merci !</string>
     <string name="title_activity_candidate_list_fragmentmain">
         CandidateListFragmentactivityMainActivity
     </string>

@@ -41,7 +41,7 @@ class CandidateAdapterList (val candidate: Candidate) : AbstractItem<CandidateAd
             itemView.professional_item_name.text = candidate?.firstname
             itemView.professional_item_exp.text = candidate?.year_exp.toString() + " années d'expériences"
             itemView.professional_item_date.text = format(candidate?.available_at)
-            itemView.professional_item_job.text = candidate?.job_id
+            itemView.professional_item_job.text = candidate?.job_name
             Picasso.get().load(candidate?.profile_picture_url).circle().into(itemView.professional_item_img)
         }
 

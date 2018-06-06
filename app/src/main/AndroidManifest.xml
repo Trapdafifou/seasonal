@@ -13,19 +13,18 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/sesonal">
+            android:theme="@style/seasonal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".candidate.CandidateList" />
         <activity android:name=".candidate.CandidateDetail" />
         <activity
             android:name=".CandidateList"
             android:label="@string/title_activity_candidate_list_fragmentmain"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/seasonal"></activity>
     </application>
 
 </manifest>

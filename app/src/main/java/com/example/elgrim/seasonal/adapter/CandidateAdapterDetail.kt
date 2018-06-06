@@ -44,7 +44,7 @@ class CandidateAdapterDetail (val candidate: Candidate) : AbstractItem<Candidate
             itemView.candidate_detail_name.text = candidate?.firstname
             itemView.candidate_detail_exp.text = candidate?.year_exp.toString() + " années d'expériences"
             itemView.candidate_detail_date.text = format(candidate?.available_at)
-            itemView.candidate_detail_job.text = candidate?.job_id
+            itemView.candidate_detail_job.text = candidate?.job_name
             itemView.candidate_detail_place.text = "Paris"
             itemView.candidate_detail_desc.text = candidate?.description
             itemView.candidate_detail_weight.text = candidate?.wage_claim.toString()

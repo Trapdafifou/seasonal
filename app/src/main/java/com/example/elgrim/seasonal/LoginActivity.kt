@@ -1,6 +1,7 @@
 package com.example.elgrim.seasonal
 
 import android.content.Intent
+import android.content.res.Resources
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,7 +15,7 @@ import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
 
-    val url_request = "https://seasonal-api.herokuapp.com/api/v1/rest-auth/login/"
+    val url_request =  "https://seasonal-api.herokuapp.com/api/v1/rest-auth/login/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
 
                         Response.ErrorListener { error ->
                             Log.d("Error", "%s".format(error.toString()))
-                            alert("Une erreur est survenu veuillez réassayer plus tard merci !") {
+                            alert(R.string.login_error_request) {
                                 noButton {  }
                             }.show()
                         }
@@ -50,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
 
                 HttpSingleton.getInstance(this).addToRequestQueue(objectRequest)
             }else {
-                alert("Les champs email et mot de passe son obligratoire") {
+                alert(R.string.login_miss_input) {
                     noButton {  }
                 }.show()
             }

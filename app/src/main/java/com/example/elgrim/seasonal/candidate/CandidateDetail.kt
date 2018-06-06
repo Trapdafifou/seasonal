@@ -17,7 +17,7 @@ class CandidateDetail : AppCompatActivity() {
 
         val candidate = intent.getParcelableExtra<Candidate>("candidate_EXTRA")
         Picasso.get().load(candidate.profile_picture_url).into(candidate_detail_img)
-        candidate_detail_job.text = candidate.job_id.toString()
+        candidate_detail_job.text = candidate.job_name.toString()
         candidate_detail_name.text = candidate.firstname + " " + candidate.lastname
         candidate_detail_exp.text = candidate.year_exp.toString()
         candidate_detail_date.text = format(candidate.available_at)
