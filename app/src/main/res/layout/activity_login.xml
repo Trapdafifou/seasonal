@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:fontFamily="sans-serif"
+            android:hint="@string/entrez_votre_adresse_mail"
             android:inputType="textEmailAddress"
             android:textColor="#373633"
             android:textSize="14sp"
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:fontFamily="sans-serif"
+            android:hint="@string/hint_password"
             android:inputType="textPassword"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -92,7 +94,8 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo_foreground" />
+        app:srcCompat="@mipmap/logo_foreground"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/textView"
