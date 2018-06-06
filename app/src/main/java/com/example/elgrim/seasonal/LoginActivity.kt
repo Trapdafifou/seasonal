@@ -7,7 +7,6 @@ import android.util.Log
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
-import com.example.elgrim.seasonal.candidate.CandidateList
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.alert
 import org.json.JSONObject
@@ -26,17 +25,13 @@ class LoginActivity : AppCompatActivity() {
             val password = login_password.text
 
             if  (email.isNotEmpty() && password.isNotEmpty() ) {
-                val intent = Intent(this, CandidateList::class.java)
-                startActivity(intent)
-
-/*                val jsonObject = JSONObject()
+                val jsonObject = JSONObject()
                 jsonObject.put("email", email)
                 jsonObject.put("password", password)
 
                 val objectRequest = JsonObjectRequest(Request.Method.POST, url_request, jsonObject,
                         Response.Listener { response ->
-                            if (response.toString().isBlank()) {}
-                            else {
+                            if (response.toString().isNotBlank()) {
                                 val datas = response.get("key").toString()
                                 val intent = Intent(this, CandidateList::class.java)
                                 intent.putExtra("token", datas)
@@ -53,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                 )
 
-                HttpSingleton.getInstance(this).addToRequestQueue(objectRequest)*/
+                HttpSingleton.getInstance(this).addToRequestQueue(objectRequest)
             }else {
                 alert("Les champs email et mot de passe son obligratoire") {
                     noButton {  }

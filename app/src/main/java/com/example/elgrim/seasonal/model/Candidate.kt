@@ -16,13 +16,13 @@ fun Parcel.readDate(): Date {
 class Candidate: User, Parcelable {
     lateinit var year_exp: Number
     lateinit var available_at: Date
-    lateinit var job_id: Number
+    lateinit var job_id: String
     lateinit var profile_view_count: Number
     lateinit var wage_claim: Number
     lateinit var description: String
     lateinit var profile_picture_url: String
 
-    constructor(id: Number, lastname: String, firstname: String, email: String, password: String, token: String, year_exp: Number, available_at: Date, job_id: Number, profile_view_count: Number, wage_claim: Number, description: String, profile_picture_url: String) : super(id, lastname, firstname, email, password, token) {
+    constructor(id: Number, lastname: String, firstname: String, email: String, password: String, token: String, year_exp: Number, available_at: Date, job_id: String, profile_view_count: Number, wage_claim: Number, description: String, profile_picture_url: String) : super(id, lastname, firstname, email, password, token) {
         this.year_exp = year_exp
         this.available_at = available_at
         this.job_id = job_id
@@ -35,7 +35,7 @@ class Candidate: User, Parcelable {
     constructor(parcel: Parcel) : super(parcel) {
         year_exp = parcel.readInt()
         available_at = parcel.readDate()
-        job_id = parcel.readInt()
+        job_id = parcel.readString()
         profile_view_count = parcel.readInt()
         wage_claim = parcel.readInt()
         description = parcel.readString()
@@ -48,7 +48,7 @@ class Candidate: User, Parcelable {
 
         parcel.writeInt(year_exp as Int)
         parcel.writeDate(available_at)
-        parcel.writeInt(job_id as Int)
+        parcel.writeString(job_id)
         parcel.writeInt(profile_view_count as Int)
         parcel.writeInt(wage_claim as Int)
         parcel.writeString(description)

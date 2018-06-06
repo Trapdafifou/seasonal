@@ -5,4 +5,12 @@
     <string name="login_submit">Connexion</string>
     <string name="login_sign_in">Sign up for seasonal</string>
     <string name="error_login">Can’t log in ?</string>
+    <string name="title_activity_candidate_list_fragmentmain">
+        CandidateListFragmentactivityMainActivity
+    </string>
+    <string name="tab_candidate_list">Liste</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_candiddate_detail">Détail</string>
 </resources>
