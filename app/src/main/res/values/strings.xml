@@ -5,7 +5,7 @@
     <string name="login_submit">Connexion</string>
     <string name="login_sign_in">Inscription</string>
     <string name="error_login">Probléme de connexion ? </string>
-    <string name="login_miss_input">Les champs email et mot de passe son obligratoire</string>
+    <string name="login_miss_input">Les champs email et mot de passe sont obligatoires</string>
     <string name="login_error_request">Une erreur est survenu veuillez réassayer plus tard merci !</string>
     <string name="title_activity_candidate_list_fragmentmain">
         CandidateListFragmentactivityMainActivity
@@ -16,4 +16,6 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="tab_candiddate_detail">Détail</string>
     <string name="candidate_search_at">Je recherche un saisonnier à partir du</string>
+    <string name="entrez_votre_adresse_mail">Entrez votre adresse mail</string>
+    <string name="hint_password">*****</string>
 </resources>
