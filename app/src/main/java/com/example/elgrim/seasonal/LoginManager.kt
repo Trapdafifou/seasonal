@@ -48,15 +48,10 @@ class LoginManager : AppCompatActivity() {
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
-            when (position) {
-                0 -> {
-                    return LoginFragmentBusiness()
-                }
-
-                1 -> {
-                    return LoginFragmentCandidate()
-                }
-                else -> return null
+            return when (position) {
+                0 -> LoginFragmentBusiness()
+                1 -> LoginFragmentCandidate()
+                else -> null
             }
         }
 
@@ -65,12 +60,11 @@ class LoginManager : AppCompatActivity() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            when (position) {
-                0 -> return "Entreprise"
-                1 -> return "Saisonnier"
+            return when (position) {
+                0 -> "Entreprise"
+                1 -> "Saisonnier"
+                else -> null
             }
-
-            return null
         }
     }
 }
