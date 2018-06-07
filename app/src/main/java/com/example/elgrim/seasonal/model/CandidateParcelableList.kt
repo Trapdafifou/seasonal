@@ -5,4 +5,4 @@ import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
-data class CandidateList(val candidates: List<Candidate>) : Parcelable
+data class CandidateParcelableList(val candidates: List<Candidate>?) : Parcelable
