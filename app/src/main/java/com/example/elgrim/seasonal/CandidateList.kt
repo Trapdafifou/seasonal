@@ -47,8 +47,8 @@ class CandidateList : Fragment() {
             calendar.set(Calendar.MONTH, monthOfYear)
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-            //val date = calendar.time
-            //val timeText = dateFormater.format(date)
+            val date = calendar.time
+            val timeText = dateFormater.format(date)
             updateDateInView()
 
         }
@@ -96,15 +96,23 @@ class CandidateList : Fragment() {
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
-            return when (position) {
+            when (position) {
                 0 -> {
-                    CandidateFragmentList()
+                    val bundle = Bundle()
+                    //bundle.putParcelable("Student", model)
+                    val fragment = CandidateFragmentList()
+                    fragment.setArguments(bundle)
+                    return fragment
                 }
 
                 1 -> {
-                    CandidateFragmentDetail()
+                    val bundle = Bundle()
+                    //bundle.putParcelable("Student", model)
+                    val fragment = CandidateFragmentDetail()
+                    fragment.setArguments(bundle)
+                    return fragment
                 }
-                else -> null
+                else -> return null
             }
         }
 
