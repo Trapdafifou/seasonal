@@ -4,7 +4,6 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +21,6 @@ import kotlinx.android.synthetic.main.fragment_candidate_list.*
 
 
 class CandidateFragmentList : Fragment() {
-    //get any value from prefs
 
     private lateinit var prefs: SharedPreferences
 
@@ -30,17 +28,6 @@ class CandidateFragmentList : Fragment() {
         prefs = PreferenceHelper.defaultPrefs(this.activity)
         getCandidates()
         return inflater.inflate(R.layout.fragment_candidate_list, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val candidates = arrayListOf<Candidate>()
-        professional_recycler_list.layoutManager = LinearLayoutManager(context)
-        val itemAdapter = FastItemAdapter<CandidateAdapterList>()
-        itemAdapter.add(candidates.map { CandidateAdapterList(it) })
-
-        professional_recycler_list.adapter = itemAdapter
     }
 
     private fun getCandidates() {

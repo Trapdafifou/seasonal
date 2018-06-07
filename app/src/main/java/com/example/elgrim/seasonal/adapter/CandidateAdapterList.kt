@@ -46,6 +46,5 @@ class CandidateAdapterList (val candidate: Candidate) : AbstractItem<CandidateAd
             itemView.professional_item_weight.text = "${candidate?.wage_claim.toString()}€"
             Picasso.get().load(candidate?.profile_picture ?: Constants.PLACEHOLDER_URL).circle().into(itemView.professional_item_img)
         }
-
     }
 }
