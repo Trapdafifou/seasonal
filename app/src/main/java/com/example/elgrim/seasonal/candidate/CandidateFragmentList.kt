@@ -25,9 +25,10 @@ import com.mikepenz.fastadapter.listeners.OnClickListener
 import kotlinx.android.synthetic.main.fragment_candidate_list.*
 
 
-class CandidateFragmentList : Fragment() {
+class CandidateFragmentList : BaseCandidateFragment() {
 
-    private lateinit var prefs: SharedPreferences
+    override lateinit var prefs: SharedPreferences
+    override var candidates: ArrayList<Candidate>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_candidate_list, container, false)
@@ -37,25 +38,23 @@ class CandidateFragmentList : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         prefs = PreferenceHelper.defaultPrefs(this.activity)
-        val bundle = this.arguments
-        if (bundle != null) {
-            Log.d("BUNDLE", bundle.toString())
-            val candidatesData = bundle.getParcelable<CandidateParcelableList>("CandidatesParcelableList")
-            professional_recycler_list.layoutManager = LinearLayoutManager(context)
-            val itemAdapter = FastItemAdapter<CandidateAdapterList>()
-            itemAdapter.add(candidatesData.candidates?.map { CandidateAdapterList(it) })
+        professional_recycler_list.layoutManager = LinearLayoutManager(context)
+        val itemAdapter = FastItemAdapter<CandidateAdapterList>()
+        itemAdapter.add(candidates?.map { CandidateAdapterList(it) })
 
-            professional_recycler_list.adapter = itemAdapter
+        professional_recycler_list.adapter = itemAdapter
 
-            itemAdapter.withOnClickListener({ _, _, item, _ ->
-                val candidate = item.candidate
-                val intent = Intent(this.context, CandidateDetail::class.java)
-                intent.putExtra("candidate_EXTRA", candidate)
-                startActivity(intent)
-                true
-            })
-        }
+        itemAdapter.withOnClickListener({ _, _, item, _ ->
+            val candidate = item.candidate
+            val intent = Intent(this.context, CandidateDetail::class.java)
+            intent.putExtra("candidate_EXTRA", candidate)
+            startActivity(intent)
+            true
+        })
+    }
 
+    override fun setCantidate(candidatesData: ArrayList<Candidate>) {
+        this.candidates = candidatesData
     }
 
 }

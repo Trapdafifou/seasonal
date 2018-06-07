@@ -21,11 +21,11 @@ import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import com.mikepenz.fastadapter.listeners.OnClickListener
 import kotlinx.android.synthetic.main.fragment_candidate_detail.*
 import java.util.*
-import kotlinx.android.synthetic.main.fragment_candidate_detail.*
 
-class CandidateFragmentDetail : Fragment() {
+class CandidateFragmentDetail : BaseCandidateFragment() {
 
-    private lateinit var prefs: SharedPreferences
+    override lateinit var prefs: SharedPreferences
+    override var candidates: ArrayList<Candidate>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         prefs = PreferenceHelper.defaultPrefs(this.activity)
@@ -46,8 +46,7 @@ class CandidateFragmentDetail : Fragment() {
                 professional_recycler_detail.adapter = itemAdapter
 
 
-                itemAdapter.withOnClickListener(OnClickListener{
-                    _, _, item, _ ->
+                itemAdapter.withOnClickListener(OnClickListener { _, _, item, _ ->
                     val candidate = item.candidate
                     val intent = Intent(this.context, CandidateDetail::class.java)
                     intent.putExtra("candidate_EXTRA", candidate)
@@ -56,5 +55,10 @@ class CandidateFragmentDetail : Fragment() {
                 })
             }
         }
+    }
+
+
+    override fun setCantidate(candidatesData: ArrayList<Candidate>) {
+        this.candidates = candidatesData
     }
 }

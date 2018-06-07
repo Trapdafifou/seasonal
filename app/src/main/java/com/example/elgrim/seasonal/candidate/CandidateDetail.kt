@@ -6,7 +6,6 @@ import android.os.Bundle
 import com.example.elgrim.seasonal.Constants
 import com.example.elgrim.seasonal.R
 import com.example.elgrim.seasonal.model.Candidate
-import com.example.elgrim.seasonal.utils.format
 import com.hendraanggrian.pikasso.circle
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_candidate_detail.*

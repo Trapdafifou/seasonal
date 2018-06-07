@@ -42,7 +42,6 @@ class ServiceVolley : ServiceInterface {
                 Response.Listener<JSONArray> { response ->
                     completionHandler(response)
                 },
-                // TODO: find why no log
                 Response.ErrorListener { error ->
                     VolleyLog.e(TAG, "/get request fail! Error: ${error.message}")
                     completionHandler(null)

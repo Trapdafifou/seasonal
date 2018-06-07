@@ -4,9 +4,9 @@
     <string name="login_password">Mot de passe</string>
     <string name="login_submit">Connexion</string>
     <string name="login_sign_in">s\'inscrire à seasonal</string>
-    <string name="error_login">Probléme de connexion ? </string>
-    <string name="login_miss_input">Les champs email et mot de passe son obligratoire</string>
-    <string name="login_error_request">Une erreur est survenu veuillez réassayer plus tard merci !</string>
+    <string name="error_login">Probleme de connexion ? </string>
+    <string name="login_miss_input">Les champs email et mot de passe son obligatoire</string>
+    <string name="login_error_request">Une erreur est survenue veuillez réessayer plus tard merci !</string>
     <string name="title_activity_candidate_list_fragmentmain">
         CandidateListFragmentactivityMainActivity
     </string>
@@ -57,4 +57,6 @@
     <string name="registerCandidateReviewLabelLocation">J\'habite à</string>
     <string name="registerCandidateReviewLabelJob">Je suis</string>
     <string name="candidate_detail_edit_button">modifier</string>
+    <string name="login_password_hint">entrez votre mot de passe</string>
+    <string name="login_email_hint">entrez votre adresse mail</string>
 </resources>
