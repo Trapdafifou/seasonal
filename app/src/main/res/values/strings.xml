@@ -48,4 +48,7 @@
     <string name="validationWrong">Veuillez remplir le</string>
     <string name="baseDateInput">--/--</string>
     <string name="validationFormError">Erreur lors de l\'enregistrement</string>
+    <string name="registerCandidateReviewLabelIdentity">Je suis</string>
+    <string name="registerCandidateReviewLabelLocation">J\'habite à</string>
+    <string name="registerCandidateReviewLabelJob">Je suis</string>
 </resources>

@@ -13,6 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="35dp"
         android:ems="10"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/registerCandidateSalary"
         android:textColor="#3a3336"
         android:textSize="24sp"
@@ -24,23 +25,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/registerCandidateExperience"
         android:textColor="#3a3336"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
-
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/registerTagsRecyclerView" />
 
     <Spinner
         android:id="@+id/registerExperienceValueSpinner"
@@ -48,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
@@ -57,8 +49,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/roboto"
         android:text="@string/registrationCandidateExperienceUnit"
+        android:textColor="#3a3336"
         app:layout_constraintStart_toEndOf="@+id/registerExperienceValueSpinner"
         app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
@@ -69,6 +63,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:text="@string/registerCandidateDisponibility"
+        android:textColor="#3a3336"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerExperienceValueSpinner" />
 
@@ -78,7 +73,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText7" />
 
@@ -101,7 +97,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
         android:text="@string/registerCandidateSalaryBrut"
+        android:textColor="#3a3336"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/editText7" />
 
@@ -120,6 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/registerCandidateDomainTitle"
         android:textColor="#3a3336"
         android:textSize="24sp"
@@ -132,8 +131,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/roboto_light"
         android:text="@string/registerCandidateDomainHint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/registerTagsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+    </android.support.v7.widget.RecyclerView>
+
 
 </android.support.constraint.ConstraintLayout>

@@ -5,13 +5,12 @@ import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.DatePicker
-import android.widget.Spinner
+import android.widget.*
+import com.example.elgrim.seasonal.adapter.JobTagAdapter
 import kotlinx.android.synthetic.main.activity_register_candidate2.*
-import java.util.Locale
+import java.util.*
 
 class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -19,6 +18,8 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
         val experienceValues: MutableList<Number> = arrayListOf()
         val wageValues: MutableList<Number> = arrayListOf()
     }
+
+    val jobsTabs: ArrayList<String> = ArrayList()
 
     var calendar = Calendar.getInstance()
 
@@ -35,6 +36,10 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
         }
 
         registerJobDateSpinner.text = resources.getString(R.string.baseDateInput)
+
+        getJobsTag(jobsTabs)
+        registerTagsRecyclerView.layoutManager = GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false)
+        registerTagsRecyclerView.adapter = JobTagAdapter(jobsTabs, this)
 
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
             override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
@@ -61,7 +66,7 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
         populateSpinner(registerWageValueSpinner, DataPopulate.wageValues)
     }
 
-    private fun populateSpinner (spinner: Spinner, populate_item: List<Any>) {
+    private fun populateSpinner(spinner: Spinner, populate_item: List<Any>) {
         spinner.setOnItemSelectedListener(this)
 
         // Create an ArrayAdapter using a simple spinner layout and languages array
@@ -85,5 +90,18 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
         val myFormat = "dd/MM" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.FRENCH)
         registerJobDateSpinner.text = sdf.format(calendar.getTime())
+    }
+
+    private fun getJobsTag(datas: List<String>) {
+
+        jobsTabs.add("Serveur")
+        jobsTabs.add("Serveur")
+        jobsTabs.add("Serveur")
+        jobsTabs.add("Serveur")
+        jobsTabs.add("Serveur")
+
+        for (data in datas) {
+
+        }
     }
 }
