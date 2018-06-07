@@ -16,6 +16,7 @@ import com.example.elgrim.seasonal.http.APIController
 import com.example.elgrim.seasonal.http.ServiceVolley
 import com.example.elgrim.seasonal.utils.PreferenceHelper
 import com.example.elgrim.seasonal.utils.PreferenceHelper.set
+import kotlinx.android.synthetic.main.abc_alert_dialog_button_bar_material.*
 import kotlinx.android.synthetic.main.fragment_login_fragment_business.*
 import org.json.JSONObject
 
@@ -50,11 +51,17 @@ class LoginFragmentBusiness : Fragment(), View.OnClickListener {
                     val intent = Intent(this.context, NavigationManager::class.java)
                     startActivity(intent)
                 } else {
-                    AlertDialog.Builder(this.context).create().setTitle(R.string.login_error_request)
+                    AlertDialog.Builder(this.context)
+                            .setTitle(R.string.login_error_request)
+                            .create()
+                            .show()
                 }
             }
         } else {
-            AlertDialog.Builder(this.context).create().setTitle(R.string.login_miss_input)
+            AlertDialog.Builder(this.context)
+                    .setTitle(R.string.login_miss_input)
+                    .create()
+                    .show()
         }
     }
 }

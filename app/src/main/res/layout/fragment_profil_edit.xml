@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profil.ProfilFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/profil_lable_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/profil_label_adresse" />
+
+    <EditText
+        android:id="@+id/profil_input_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="#373633"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/profil_lable_email"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/profil_label_domaine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/profil_input_adresse"
+        tools:layout_editor_absoluteX="16dp"
+        tools:text="@string/profil_label_domaine" />
+
+    <EditText
+        android:id="@+id/profil_input_domaine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="#373633"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/profil_label_domaine"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/profil_label_adresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/profil_input_email"
+        tools:layout_editor_absoluteX="16dp"
+        tools:text="@string/profil_label_adresse_postal" />
+
+    <EditText
+        android:id="@+id/profil_input_adresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="#373633"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/profil_label_adresse"
+        tools:layout_editor_absoluteX="16dp" />
+
+</android.support.constraint.ConstraintLayout>
