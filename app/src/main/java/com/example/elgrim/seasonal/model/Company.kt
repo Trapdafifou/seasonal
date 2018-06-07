@@ -4,9 +4,8 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class User(
-        var id: Number,
-        var last_name: String,
-        var first_name: String,
-        var email: String
+class Company(val id: Number,
+              val name: String,
+              val jobs: Array<Job>,
+              val address: String
 ) : Parcelable
