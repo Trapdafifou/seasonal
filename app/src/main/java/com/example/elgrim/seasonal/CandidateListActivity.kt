@@ -10,22 +10,18 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.DatePicker
 import com.example.elgrim.seasonal.candidate.CandidateFragmentDetail
 import com.example.elgrim.seasonal.candidate.CandidateFragmentList
 
 import kotlinx.android.synthetic.main.candidate_fragment_container.*
 import java.text.SimpleDateFormat
 import java.util.*
-import android.text.Editable
-import android.util.Log
 
 
-class CandidateList : AppCompatActivity() {
+class CandidateListActivity : AppCompatActivity() {
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
-    var calendar = Calendar.getInstance()
-    val dateFormater: SimpleDateFormat by lazy {
+    private var calendar: Calendar = Calendar.getInstance()
+    private val dateFormater: SimpleDateFormat by lazy {
         SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
     }
 
@@ -34,26 +30,24 @@ class CandidateList : AppCompatActivity() {
         setContentView(R.layout.candidate_fragment_container)
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
-        val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+        val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
             calendar.set(Calendar.MONTH, monthOfYear)
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-            val date = calendar.time
-            val timeText = dateFormater.format(date)
+            //val date = calendar.time
+            //val timeText = dateFormater.format(date)
             updateDateInView()
 
         }
 
-        candidate_filter_date.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                DatePickerDialog(this@CandidateList,
-                dateSetListener,
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH)).show()
-            }
-        })
+        candidate_filter_date.setOnClickListener {
+            DatePickerDialog(this@CandidateListActivity,
+                    dateSetListener,
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH)).show()
+        }
 
         container.adapter = mSectionsPagerAdapter
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
@@ -78,15 +72,15 @@ class CandidateList : AppCompatActivity() {
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
-            when (position) {
+            return when (position) {
                 0 -> {
-                    return CandidateFragmentList()
+                    CandidateFragmentList()
                 }
 
                 1 -> {
-                    return CandidateFragmentDetail()
+                    CandidateFragmentDetail()
                 }
-                else -> return null
+                else -> null
             }
         }
 
@@ -104,9 +98,9 @@ class CandidateList : AppCompatActivity() {
         }
     }
 
-private fun updateDateInView() {
-    val myFormat = "dd/MM" // mention the format you need
-    val sdf = SimpleDateFormat(myFormat, Locale.FRENCH)
-    candidate_filter_date.text = sdf.format(calendar.getTime())
-}
+    private fun updateDateInView() {
+        val myFormat = "dd/MM" // mention the format you need
+        val sdf = SimpleDateFormat(myFormat, Locale.FRENCH)
+        candidate_filter_date.text = sdf.format(calendar.getTime())
+    }
 }

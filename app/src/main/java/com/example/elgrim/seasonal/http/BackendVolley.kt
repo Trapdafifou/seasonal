@@ -5,10 +5,12 @@ import android.text.TextUtils
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
+import org.json.JSONArray
 import org.json.JSONObject
 
 interface ServiceInterface {
-    fun post(path: String, params: JSONObject, completionHandler: (response: JSONObject?) -> Unit)
+    fun post(path: String, token: String?, params: JSONObject, completionHandler: (response: JSONObject?) -> Unit)
+    fun get(path: String, token: String?, completionHandler: (response: JSONArray?) -> Unit)
 }
 
 class BackendVolley : Application() {
@@ -17,7 +19,7 @@ class BackendVolley : Application() {
         instance = this
     }
 
-    val requestQueue: RequestQueue? = null
+    private val requestQueue: RequestQueue? = null
         get() {
             if (field == null) {
                 return Volley.newRequestQueue(applicationContext)
