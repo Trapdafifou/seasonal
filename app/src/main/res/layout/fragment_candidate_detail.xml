@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CandidateListActivity">
+    tools:context=".CandidateList">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/professional_recycler_detail"
@@ -13,5 +13,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="15dp"/>
 </android.support.constraint.ConstraintLayout>

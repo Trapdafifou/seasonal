@@ -1,6 +1,7 @@
 package com.example.elgrim.seasonal.candidate
 
 import android.content.SharedPreferences
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -17,6 +18,8 @@ import com.example.elgrim.seasonal.model.Candidate
 import com.example.elgrim.seasonal.utils.PreferenceHelper
 import com.example.elgrim.seasonal.utils.PreferenceHelper.get
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
+import com.mikepenz.fastadapter.listeners.OnClickListener
+import kotlinx.android.synthetic.main.fragment_candidate_detail.*
 import java.util.*
 import kotlinx.android.synthetic.main.fragment_candidate_detail.*
 
@@ -40,8 +43,16 @@ class CandidateFragmentDetail : Fragment() {
                 professional_recycler_detail.layoutManager = LinearLayoutManager(context)
                 val itemAdapter = FastItemAdapter<CandidateAdapterDetail>()
                 itemAdapter.add(candidates.map { CandidateAdapterDetail(it) })
-
                 professional_recycler_detail.adapter = itemAdapter
+
+
+                itemAdapter.withOnClickListener(OnClickListener{
+                    _, _, item, _ ->
+                    val candidate = item.candidate
+                    val intent = Intent()
+                    intent.putExtra("candidate_EXTRA", candidate)
+                    true
+                })
             }
         }
     }

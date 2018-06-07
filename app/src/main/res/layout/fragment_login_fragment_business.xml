@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -16,8 +15,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_image">
+        app:layout_constraintStart_toStartOf="parent">
 
         <EditText
             android:id="@+id/login_email"
@@ -28,11 +26,10 @@
             android:hint="@string/entrez_votre_adresse_mail"
             android:inputType="textEmailAddress"
             android:textColor="#373633"
-            android:textSize="14sp"
+            android:textSize="16dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="58dp"
-            tools:layout_editor_absoluteY="79dp"
-            tools:text="@string/login_email" />
+            tools:layout_editor_absoluteY="79dp" />
 
         <EditText
             android:id="@+id/login_password"
@@ -42,22 +39,23 @@
             android:fontFamily="sans-serif"
             android:hint="@string/hint_password"
             android:inputType="textPassword"
-            android:textSize="14sp"
+            android:textSize="16dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="58dp"
-            tools:layout_editor_absoluteY="172dp" />
+            tools:layout_editor_absoluteY="172dp"
+            tools:text="@string/login_password" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="45dp"
         android:text="@string/error_login"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,33 +82,20 @@
         tools:background="#73f5c7"
         tools:text="@string/login_submit" />
 
-    <ImageView
-        android:id="@+id/login_image"
-        android:layout_width="228dp"
-        android:layout_height="191dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo_foreground"
-        android:contentDescription="TODO" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="17dp"
-        android:layout_marginBottom="25dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
         android:text="@string/login_sign_in"
         android:textAlignment="center"
         android:textColor="#92bfdf"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:text="@string/login_sign_in" />
 
 </android.support.constraint.ConstraintLayout>
