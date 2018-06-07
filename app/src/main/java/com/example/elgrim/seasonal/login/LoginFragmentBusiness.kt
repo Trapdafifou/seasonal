@@ -8,10 +8,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.elgrim.seasonal.CandidateList
-import com.example.elgrim.seasonal.Constants
-import com.example.elgrim.seasonal.NavigationManager
-import com.example.elgrim.seasonal.R
+import com.example.elgrim.seasonal.*
 import com.example.elgrim.seasonal.http.APIController
 import com.example.elgrim.seasonal.http.ServiceVolley
 import com.example.elgrim.seasonal.utils.PreferenceHelper
@@ -30,6 +27,10 @@ class LoginFragmentBusiness : Fragment(), View.OnClickListener {
 
     override fun onViewCreated (view: View, savedInstanceState: Bundle?) {
         login_button.setOnClickListener(this)
+        login_buisiness_signin.setOnClickListener {
+            val intent = Intent(this.context, RegisterCandidateActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onClick(v: View?) {

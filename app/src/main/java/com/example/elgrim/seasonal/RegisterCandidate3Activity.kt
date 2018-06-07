@@ -9,8 +9,4 @@ class RegisterCandidate3Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_candidate3)
     }
-
-    fun candidateReview() {
-        registerCandidateReviewIdentity
-    }
 }
