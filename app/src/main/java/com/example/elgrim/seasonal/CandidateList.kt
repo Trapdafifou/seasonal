@@ -8,27 +8,39 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
+
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.DatePicker
 import com.example.elgrim.seasonal.candidate.CandidateFragmentDetail
 import com.example.elgrim.seasonal.candidate.CandidateFragmentList
 
 import kotlinx.android.synthetic.main.candidate_fragment_container.*
 import java.text.SimpleDateFormat
+import android.text.Editable
+import android.util.Log
+import android.view.*
 import java.util.*
 
 
-class CandidateListActivity : AppCompatActivity() {
+class CandidateList : Fragment() {
+    companion object {
+        fun newInstance(): CandidateList = CandidateList()
+    }
+
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
     private var calendar: Calendar = Calendar.getInstance()
     private val dateFormater: SimpleDateFormat by lazy {
         SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.candidate_fragment_container)
-        mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.candidate_fragment_container, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mSectionsPagerAdapter = SectionsPagerAdapter(childFragmentManager)
 
         val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
@@ -42,22 +54,34 @@ class CandidateListActivity : AppCompatActivity() {
         }
 
         candidate_filter_date.setOnClickListener {
-            DatePickerDialog(this@CandidateListActivity,
+            DatePickerDialog(this.context,
                     dateSetListener,
                     calendar.get(Calendar.YEAR),
                     calendar.get(Calendar.MONTH),
                     calendar.get(Calendar.DAY_OF_MONTH)).show()
         }
 
+       /* candidate_filter_date.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View) {
+                DatePickerDialog(context,
+                dateSetListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)).show()
+            }
+        })*/
+
         container.adapter = mSectionsPagerAdapter
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_candidate_list_fragmentactivity_main, menu)
-        return true
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.menu_candidate_list_fragmentactivity_main, menu)
+
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
@@ -104,3 +128,4 @@ class CandidateListActivity : AppCompatActivity() {
         candidate_filter_date.text = sdf.format(calendar.getTime())
     }
 }
+
