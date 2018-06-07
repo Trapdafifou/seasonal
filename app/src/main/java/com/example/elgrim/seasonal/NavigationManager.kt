@@ -4,17 +4,16 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.example.elgrim.seasonal.profil.ProfilFragment
 import kotlinx.android.synthetic.main.navigation_main.*
 
 class NavigationManager: AppCompatActivity() {
 
-    val candidateFragment: CandidateList by lazy {
+    private val candidateFragment: CandidateList by lazy {
         CandidateList.newInstance()
     }
 
-    val profilFragment: ProfilFragment by lazy {
+    private val profilFragment: ProfilFragment by lazy {
         ProfilFragment.newInstance()
     }
 
@@ -28,7 +27,6 @@ class NavigationManager: AppCompatActivity() {
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        Log.d("eazeaze", item.itemId.toString())
         when (item.itemId) {
             R.id.home-> {
                 openFragment(candidateFragment)

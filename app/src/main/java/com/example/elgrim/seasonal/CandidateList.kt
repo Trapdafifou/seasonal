@@ -32,7 +32,7 @@ class CandidateList : Fragment() {
 
     private lateinit var prefs: SharedPreferences
     private var candidates: List<Candidate>? = null
-    private var candidateFragmentList = CandidateFragmentList()
+    private var candidateFragmentList: CandidateFragmentList = CandidateFragmentList()
     private var candidateFragmentDetails = CandidateFragmentDetail()
 
     private val loadingFragment: LoadingFragment by lazy {
@@ -65,8 +65,8 @@ class CandidateList : Fragment() {
 
             if (response != null) {
                 candidates = Klaxon().parseArray(response.toString())
-                candidateFragmentList.setCantidate(ArrayList(candidates))
-                candidateFragmentDetails.setCantidate(ArrayList(candidates))
+                candidateFragmentList.setCantidate(candidates as ArrayList<Candidate>)
+                candidateFragmentDetails.setCantidate(candidates as ArrayList<Candidate>)
             }
 
             mSectionsPagerAdapter = SectionsPagerAdapter(childFragmentManager)
@@ -145,12 +145,11 @@ class CandidateList : Fragment() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            when (position) {
-                0 -> return "Liste"
-                1 -> return "Détail"
+            return when (position) {
+                0 -> "Liste"
+                1 -> "Détail"
+                else -> null
             }
-
-            return null
         }
     }
 
