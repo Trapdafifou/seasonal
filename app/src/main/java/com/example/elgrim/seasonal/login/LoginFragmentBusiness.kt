@@ -13,7 +13,6 @@ import com.example.elgrim.seasonal.http.APIController
 import com.example.elgrim.seasonal.http.ServiceVolley
 import com.example.elgrim.seasonal.utils.PreferenceHelper
 import com.example.elgrim.seasonal.utils.PreferenceHelper.set
-import kotlinx.android.synthetic.main.abc_alert_dialog_button_bar_material.*
 import kotlinx.android.synthetic.main.fragment_login_fragment_business.*
 import org.json.JSONObject
 

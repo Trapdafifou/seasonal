@@ -12,6 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+              <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".LoginManager"
             android:theme="@style/seasonal"
@@ -19,17 +26,11 @@
         <activity android:name=".candidate.CandidateDetail" />
         <activity android:name=".NavigationManager" />
         <activity android:name=".StatsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".candidate.CandidateDetail" />
-        <activity android:name=".RegisterCandidateActivity" />
-        <activity android:name=".RegisterCandidate2Activity" />
-        <activity android:name=".RegisterCandidate3Activity" />
-        <activity android:name=".NavigationManager" />
+        <activity android:name=".RegisterCandidateActivity"></activity>
+        <activity android:name=".RegisterCandidate2Activity"></activity>
+        <activity android:name=".RegisterCandidate3Activity"></activity>
+        <activity android:name=".CandidateNavigationManager"></activity>
     </application>
 
 </manifest>
