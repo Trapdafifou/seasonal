@@ -26,6 +26,7 @@ import com.example.elgrim.seasonal.model.CandidateParcelableList
 import com.example.elgrim.seasonal.shared.LoadingFragment
 import com.example.elgrim.seasonal.utils.PreferenceHelper
 import com.example.elgrim.seasonal.utils.PreferenceHelper.get
+import kotlinx.android.synthetic.main.notification_template_part_time.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -33,9 +34,9 @@ import kotlin.collections.ArrayList
 class CandidateList : Fragment() {
 
     private lateinit var prefs: SharedPreferences
-    private var candidates: CandidateParcelableList? = null
+    private var candidates: List<Candidate>? = null
 
-    val loadingFragment: LoadingFragment by lazy {
+    private val loadingFragment: LoadingFragment by lazy {
         LoadingFragment()
     }
 
@@ -51,26 +52,28 @@ class CandidateList : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         prefs = PreferenceHelper.defaultPrefs(this.activity)
-        getCandidates()
+        getCandidates(null)
         return inflater.inflate(R.layout.candidate_fragment_container, container, false)
     }
 
-    private fun getCandidates() {
+    private fun getCandidates(params: String?) {
 
         showLoadingFragment()
 
         val service = ServiceVolley()
         val apiController = APIController(service)
-        apiController.get("candidates/", prefs[Constants.TOKEN]) { response ->
+        apiController.get("candidates/${params ?: ""}", prefs[Constants.TOKEN]) { response ->
 
             if (response != null) {
                 val result = Klaxon().parseArray<Candidate>(response.toString())
-                candidates = CandidateParcelableList(result)
+                candidates = Klaxon().parseArray<Candidate>(response.toString())
+                Log.d("CAN", candidates.toString())
             }
 
             mSectionsPagerAdapter = SectionsPagerAdapter(childFragmentManager)
 
             container.adapter = mSectionsPagerAdapter
+            mSectionsPagerAdapter?.notifyDataSetChanged()
             tabs.setupWithViewPager(container)
 
             hideLoadingFragment()
@@ -96,7 +99,7 @@ class CandidateList : Fragment() {
             val date = calendar.time
             val timeText = dateFormater.format(date)
             updateDateInView()
-
+            getCandidates("?from=$timeText")
         }
 
         candidate_filter_date.setOnClickListener {
@@ -106,16 +109,6 @@ class CandidateList : Fragment() {
                     calendar.get(Calendar.MONTH),
                     calendar.get(Calendar.DAY_OF_MONTH)).show()
         }
-
-        /* candidate_filter_date.setOnClickListener(object : View.OnClickListener {
-             override fun onClick(view: View) {
-                 DatePickerDialog(context,
-                 dateSetListener,
-                 calendar.get(Calendar.YEAR),
-                 calendar.get(Calendar.MONTH),
-                 calendar.get(Calendar.DAY_OF_MONTH)).show()
-             }
-         })*/
 
         container.adapter = mSectionsPagerAdapter
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
@@ -141,24 +134,19 @@ class CandidateList : Fragment() {
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
-            when (position) {
+            return when (position) {
                 0 -> {
-                    val bundle = Bundle()
-                    bundle.putParcelable("CandidatesParcelableList", candidates)
-                    Log.d("CA", candidates.toString())
                     val fragment = CandidateFragmentList()
-                    fragment.arguments = bundle
-                    return fragment
+                    fragment.setCantidate(ArrayList(candidates))
+                    fragment
                 }
 
                 1 -> {
-                    val bundle = Bundle()
-                    bundle.putParcelable("CandidatesParcelableList", candidates)
                     val fragment = CandidateFragmentDetail()
-                    fragment.arguments = bundle
-                    return fragment
+                    //fragment.setCantidate(ArrayList(candidates))
+                    fragment
                 }
-                else -> return null
+                else -> null
             }
         }
 
