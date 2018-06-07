@@ -30,4 +30,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="profil_label_adresse">Adresse mail</string>
+    <string name="profil_label_adresse_postal">Adresse postale</string>
+    <string name="profil_label_domaine">Domaine de mon entreprise</string>
+    <string name="candidate_detail_contact1">Contact</string>
 </resources>

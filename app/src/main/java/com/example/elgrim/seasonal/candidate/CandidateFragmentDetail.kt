@@ -49,8 +49,9 @@ class CandidateFragmentDetail : Fragment() {
                 itemAdapter.withOnClickListener(OnClickListener{
                     _, _, item, _ ->
                     val candidate = item.candidate
-                    val intent = Intent()
+                    val intent = Intent(this.context, CandidateDetail::class.java)
                     intent.putExtra("candidate_EXTRA", candidate)
+                    startActivity(intent)
                     true
                 })
             }
