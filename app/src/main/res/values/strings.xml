@@ -34,4 +34,25 @@
     <string name="profil_label_adresse_postal">Adresse postale</string>
     <string name="profil_label_domaine">Domaine de mon entreprise</string>
     <string name="candidate_detail_contact1">Contact</string>
+    <string name="registerFirstName">Prénom</string>
+    <string name="registerLastName">Nom</string>
+    <string name="registrationEmail">Adresse mail</string>
+    <string name="registerPassword">Entrer mot de passe</string>
+    <string name="registerPasswordConfirmation">Valider mot de passe</string>
+    <string name="registerEditCity">Entrer la ville de votre lieu de travail</string>
+    <string name="registerCandidateDomainTitle">Type de jobs</string>
+    <string name="registerCandidateDomainHint">Entrer le ou les domaines de votre établissement</string>
+    <string name="registerCandidateExperience">Mon expérience</string>
+    <string name="registerCandidateDisponibility">Je recherche un job à partir du</string>
+    <string name="registerCandidateSalary">Prétentions salariales</string>
+    <string name="registerCandidateEuro">€</string>
+    <string name="registerCandidateSalaryBrut">bruts</string>
+    <string name="registrationCandidateExperienceUnit">Année(s)</string>
+    <string name="validationEmailWrong">Veuillez remplir un email valide</string>
+    <string name="validationWrong">Veuillez remplir le</string>
+    <string name="baseDateInput">--/--</string>
+    <string name="validationFormError">Erreur lors de l\'enregistrement</string>
+    <string name="registerCandidateReviewLabelIdentity">Je suis</string>
+    <string name="registerCandidateReviewLabelLocation">J\'habite à</string>
+    <string name="registerCandidateReviewLabelJob">Je suis</string>
 </resources>

@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +17,7 @@ import com.example.elgrim.seasonal.adapter.CandidateAdapterList
 import com.example.elgrim.seasonal.http.APIController
 import com.example.elgrim.seasonal.http.ServiceVolley
 import com.example.elgrim.seasonal.model.Candidate
+import com.example.elgrim.seasonal.model.CandidateParcelableList
 import com.example.elgrim.seasonal.utils.PreferenceHelper
 import com.example.elgrim.seasonal.utils.PreferenceHelper.get
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
@@ -27,34 +30,33 @@ class CandidateFragmentList : Fragment() {
     private lateinit var prefs: SharedPreferences
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        prefs = PreferenceHelper.defaultPrefs(this.activity)
-        getCandidates()
         return inflater.inflate(R.layout.fragment_candidate_list, container, false)
     }
 
-    private fun getCandidates() {
-        val service = ServiceVolley()
-        val apiController = APIController(service)
-        apiController.get("candidates/", prefs[Constants.TOKEN]) { response ->
-            if (response != null) {
-                val result = Klaxon().parseArray<Candidate>(response.toString())
-                val candidates = ArrayList(result)
-                professional_recycler_list.layoutManager = LinearLayoutManager(context)
-                val itemAdapter = FastItemAdapter<CandidateAdapterList>()
-                itemAdapter.add(candidates.map { CandidateAdapterList(it) })
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-                professional_recycler_list.adapter = itemAdapter
+        prefs = PreferenceHelper.defaultPrefs(this.activity)
+        val bundle = this.arguments
+        if (bundle != null) {
+            Log.d("BUNDLE", bundle.toString())
+            val candidatesData = bundle.getParcelable<CandidateParcelableList>("CandidatesParcelableList")
+            professional_recycler_list.layoutManager = LinearLayoutManager(context)
+            val itemAdapter = FastItemAdapter<CandidateAdapterList>()
+            itemAdapter.add(candidatesData.candidates?.map { CandidateAdapterList(it) })
 
-                itemAdapter.withOnClickListener({
-                    _, _, item, _ ->
-                    val candidate = item.candidate
-                    val intent = Intent(this.context, CandidateDetail::class.java)
-                    intent.putExtra("candidate_EXTRA", candidate)
-                    startActivity(intent)
-                    true
-                })
-            }
+            professional_recycler_list.adapter = itemAdapter
+
+            itemAdapter.withOnClickListener({ _, _, item, _ ->
+                val candidate = item.candidate
+                val intent = Intent(this.context, CandidateDetail::class.java)
+                intent.putExtra("candidate_EXTRA", candidate)
+                startActivity(intent)
+                true
+            })
         }
+
     }
+
 }
 

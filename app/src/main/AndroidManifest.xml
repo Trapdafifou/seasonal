@@ -27,6 +27,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RegisterCandidateActivity"></activity>
+        <activity android:name=".candidate.CandidateDetail" />
+        <activity
+            android:name=".CandidateList"
+            android:label="@string/title_activity_candidate_list_fragmentmain"
+            android:theme="@style/seasonal"></activity>
+        <activity android:name=".RegisterCandidateActivity"></activity>
+        <activity android:name=".RegisterCandidate2Activity"></activity>
+        <activity android:name=".NavigationManager"></activity>
     </application>
 
 </manifest>
