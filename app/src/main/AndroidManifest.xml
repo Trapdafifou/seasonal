@@ -27,11 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".candidate.CandidateDetail" />
         <activity android:name=".RegisterCandidateActivity"></activity>
         <activity android:name=".RegisterCandidate2Activity"></activity>
         <activity android:name=".RegisterCandidate3Activity"></activity>
-        <activity android:name=".NavigationManager"></activity>
+        <activity android:name=".CandidateNavigationManager"></activity>
     </application>
 
 </manifest>
