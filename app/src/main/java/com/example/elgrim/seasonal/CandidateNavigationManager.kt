@@ -14,9 +14,6 @@ class CandidateNavigationManager: AppCompatActivity() {
         CandidateFragmentProfile.newInstance()
     }
 
-    val songFragment: SongsFragment by lazy {
-        SongsFragment.newInstance()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +27,6 @@ class CandidateNavigationManager: AppCompatActivity() {
         when (item.itemId) {
             R.id.profile_candidate-> {
                 openFragment(candidateProfilFragment)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.profile -> {
-                openFragment(songFragment)
                 return@OnNavigationItemSelectedListener true
             }
         }

@@ -52,7 +52,7 @@ class LoginFragmentCandidate : Fragment(), View.OnClickListener {
             apiController.post("rest-auth/login/", null, params) { response ->
                 if (response != null) {
                     prefs[Constants.TOKEN] = response.get("key")
-                    val intent = Intent(this.context, CandidateNavigationManager::class.java)
+                    val intent = Intent(this.context, StatsActivity::class.java)
                     startActivity(intent)
                 } else {
                     AlertDialog.Builder(this.context)
