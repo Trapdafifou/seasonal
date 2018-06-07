@@ -1,4 +1,4 @@
-package com.example.elgrim.seasonal.candidate
+package com.example.elgrim.seasonal.candidate.fragments
 
 import android.content.SharedPreferences
 import android.support.v4.app.Fragment

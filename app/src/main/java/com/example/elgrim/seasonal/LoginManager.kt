@@ -1,20 +1,14 @@
 package com.example.elgrim.seasonal
 
 import android.support.design.widget.TabLayout
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
-import com.example.elgrim.seasonal.candidate.CandidateFragmentDetail
-import com.example.elgrim.seasonal.candidate.CandidateFragmentList
 import com.example.elgrim.seasonal.login.LoginFragmentBusiness
 import com.example.elgrim.seasonal.login.LoginFragmentCandidate
 
@@ -54,15 +48,10 @@ class LoginManager : AppCompatActivity() {
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
-            when (position) {
-                0 -> {
-                    return LoginFragmentBusiness()
-                }
-
-                1 -> {
-                    return LoginFragmentCandidate()
-                }
-                else -> return null
+            return when (position) {
+                0 -> LoginFragmentBusiness()
+                1 -> LoginFragmentCandidate()
+                else -> null
             }
         }
 
@@ -71,12 +60,11 @@ class LoginManager : AppCompatActivity() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            when (position) {
-                0 -> return "Entreprise"
-                1 -> return "Saisonnier"
+            return when (position) {
+                0 -> "Entreprise"
+                1 -> "Saisonnier"
+                else -> null
             }
-
-            return null
         }
     }
 }

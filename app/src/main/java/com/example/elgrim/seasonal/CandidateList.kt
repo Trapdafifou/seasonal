@@ -8,12 +8,11 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
-import android.util.Log
 
 import android.view.Menu
 import android.view.MenuItem
-import com.example.elgrim.seasonal.candidate.CandidateFragmentDetail
-import com.example.elgrim.seasonal.candidate.CandidateFragmentList
+import com.example.elgrim.seasonal.candidate.fragments.CandidateFragmentDetail
+import com.example.elgrim.seasonal.candidate.fragments.CandidateFragmentList
 
 import kotlinx.android.synthetic.main.candidate_fragment_container.*
 import java.text.SimpleDateFormat
@@ -22,11 +21,9 @@ import com.beust.klaxon.Klaxon
 import com.example.elgrim.seasonal.http.APIController
 import com.example.elgrim.seasonal.http.ServiceVolley
 import com.example.elgrim.seasonal.model.Candidate
-import com.example.elgrim.seasonal.model.CandidateParcelableList
 import com.example.elgrim.seasonal.shared.LoadingFragment
 import com.example.elgrim.seasonal.utils.PreferenceHelper
 import com.example.elgrim.seasonal.utils.PreferenceHelper.get
-import kotlinx.android.synthetic.main.notification_template_part_time.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -35,6 +32,8 @@ class CandidateList : Fragment() {
 
     private lateinit var prefs: SharedPreferences
     private var candidates: List<Candidate>? = null
+    private var candidateFragmentList: CandidateFragmentList = CandidateFragmentList()
+    private var candidateFragmentDetails = CandidateFragmentDetail()
 
     private val loadingFragment: LoadingFragment by lazy {
         LoadingFragment()
@@ -65,9 +64,9 @@ class CandidateList : Fragment() {
         apiController.get("candidates/${params ?: ""}", prefs[Constants.TOKEN]) { response ->
 
             if (response != null) {
-                val result = Klaxon().parseArray<Candidate>(response.toString())
-                candidates = Klaxon().parseArray<Candidate>(response.toString())
-                Log.d("CAN", candidates.toString())
+                candidates = Klaxon().parseArray(response.toString())
+                candidateFragmentList.setCantidate(candidates as ArrayList<Candidate>)
+                candidateFragmentDetails.setCantidate(candidates as ArrayList<Candidate>)
             }
 
             mSectionsPagerAdapter = SectionsPagerAdapter(childFragmentManager)
@@ -135,17 +134,8 @@ class CandidateList : Fragment() {
 
         override fun getItem(position: Int): Fragment? {
             return when (position) {
-                0 -> {
-                    val fragment = CandidateFragmentList()
-                    fragment.setCantidate(ArrayList(candidates))
-                    fragment
-                }
-
-                1 -> {
-                    val fragment = CandidateFragmentDetail()
-                    //fragment.setCantidate(ArrayList(candidates))
-                    fragment
-                }
+                0 -> candidateFragmentList
+                1 -> candidateFragmentDetails
                 else -> null
             }
         }
@@ -155,12 +145,11 @@ class CandidateList : Fragment() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            when (position) {
-                0 -> return "Liste"
-                1 -> return "Détail"
+            return when (position) {
+                0 -> "Liste"
+                1 -> "Détail"
+                else -> null
             }
-
-            return null
         }
     }
 

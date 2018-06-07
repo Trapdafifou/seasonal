@@ -1,9 +1,8 @@
-package com.example.elgrim.seasonal.candidate
+package com.example.elgrim.seasonal.candidate.fragments
 
 import android.content.SharedPreferences
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +11,7 @@ import com.beust.klaxon.Klaxon
 import com.example.elgrim.seasonal.Constants
 import com.example.elgrim.seasonal.R
 import com.example.elgrim.seasonal.adapter.CandidateAdapterDetail
+import com.example.elgrim.seasonal.candidate.CandidateDetail
 import com.example.elgrim.seasonal.http.APIController
 import com.example.elgrim.seasonal.http.ServiceVolley
 import com.example.elgrim.seasonal.model.Candidate
