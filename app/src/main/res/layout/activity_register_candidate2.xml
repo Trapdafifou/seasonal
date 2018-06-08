@@ -148,6 +148,58 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12">
 
     </android.support.v7.widget.RecyclerView>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/registerCandidateStep1"
+            style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center"
+            android:text="@string/register_breadcrumb_step1"
+            android:theme="@style/RegisterCandidateRadio"
+            />
+
+        <RadioButton
+            android:id="@+id/registerCandidateStep2"
+            style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center"
+            android:text="@string/register_breadcrumb_step2"
+            android:theme="@style/RegisterCandidateRadio"
+            />
+
+        <RadioButton
+            android:id="@+id/registerCandidateStep3"
+            style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center"
+            android:text="@string/register_breadcrumb_step3"
+            android:theme="@style/RegisterCandidateRadio"
+            />
+    </RadioGroup>
 
 
 </android.support.constraint.ConstraintLayout>
