@@ -14,7 +14,6 @@ class CandidateNavigationManager: AppCompatActivity() {
         CandidateFragmentProfile.newInstance()
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_main_candidate)
@@ -27,6 +26,9 @@ class CandidateNavigationManager: AppCompatActivity() {
         when (item.itemId) {
             R.id.profile_candidate-> {
                 openFragment(candidateProfilFragment)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.profile -> {
                 return@OnNavigationItemSelectedListener true
             }
         }
