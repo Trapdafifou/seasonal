@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.elgrim.seasonal.http.APIController
 import com.example.elgrim.seasonal.http.ServiceVolley
 import com.example.elgrim.seasonal.model.Candidate
@@ -51,7 +52,9 @@ class RegisterCandidate3Activity : AppCompatActivity() {
         params.put("job_id", data.job_id)
 
         val apiController = APIController(service)
-        apiController.post("/api/v1/candidates/", "", params) { response ->
+        apiController.post("candidates/", "", params) { response ->
+            Log.d("key",response.toString())
+
             if (response != null) {
                 val intent = Intent(this, CandidateNavigationManager::class.java)
                 startActivity(intent)
