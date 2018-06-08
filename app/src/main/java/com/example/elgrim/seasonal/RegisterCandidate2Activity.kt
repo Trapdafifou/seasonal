@@ -1,6 +1,7 @@
 package com.example.elgrim.seasonal
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.support.v7.app.AppCompatActivity
@@ -26,6 +27,9 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_candidate2)
+
+        val bundle = getIntent().getExtras()
+        val value = bundle.get("step1_data")
 
         for (i in 1..12) {
             DataPopulate.experienceValues.add(i)
@@ -64,6 +68,18 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
         })
         populateSpinner(registerExperienceValueSpinner, DataPopulate.experienceValues)
         populateSpinner(registerWageValueSpinner, DataPopulate.wageValues)
+
+
+        registerCandidateStep2.isChecked = true
+
+        registerCandidateStep1.setOnClickListener {
+            val intent = Intent(this, RegisterCandidateActivity::class.java)
+            startActivity(intent)
+        }
+        registerCandidateStep3.setOnClickListener {
+            val intent = Intent(this, RegisterCandidate3Activity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun populateSpinner(spinner: Spinner, populate_item: List<Any>) {
