@@ -10,6 +10,8 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import android.widget.*
 import com.example.elgrim.seasonal.adapter.JobTagAdapter
+import com.example.elgrim.seasonal.model.Candidate
+import com.example.elgrim.seasonal.model.Job
 import kotlinx.android.synthetic.main.activity_register_candidate2.*
 import java.util.*
 
@@ -21,6 +23,7 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
     }
 
     val jobsTabs: ArrayList<String> = ArrayList()
+    var experience: Int = 0
 
     var calendar = Calendar.getInstance()
 
@@ -29,14 +32,19 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
         setContentView(R.layout.activity_register_candidate2)
 
         val bundle = getIntent().getExtras()
-        val value = bundle.get("step1_data")
+        val candidateData: Candidate = bundle.get("step1_data") as Candidate
 
-        for (i in 1..12) {
-            DataPopulate.experienceValues.add(i)
+
+        if (DataPopulate.experienceValues.isEmpty()) {
+            for (i in 1..12) {
+                DataPopulate.experienceValues.add(i)
+            }
         }
 
-        for (i in 500..3000 step 500) {
-            DataPopulate.wageValues.add(i)
+        if (DataPopulate.wageValues.isEmpty()) {
+            for (i in 500..3000 step 500) {
+                DataPopulate.wageValues.add(i)
+            }
         }
 
         registerJobDateSpinner.text = resources.getString(R.string.baseDateInput)
@@ -78,6 +86,7 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
         }
         registerCandidateStep3.setOnClickListener {
             val intent = Intent(this, RegisterCandidate3Activity::class.java)
+            intent.putExtra("step2_data", bindData(candidateData))
             startActivity(intent)
         }
     }
@@ -94,6 +103,7 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
 
     }
 
+
     override fun onNothingSelected(p0: AdapterView<*>?) {
         //To change body of created functions use File | Settings | File Templates.
     }
@@ -108,13 +118,20 @@ class RegisterCandidate2Activity : AppCompatActivity(), AdapterView.OnItemSelect
         registerJobDateSpinner.text = sdf.format(calendar.getTime())
     }
 
+    private fun bindData(candidate: Candidate): Candidate {
+        val experience = registerExperienceValueSpinner.selectedItemPosition + 1
+        val available_at = registerJobDateSpinner.text.toString()
+        val wage_claim = registerWageValueSpinner.selectedItemPosition * 500
+
+        return Candidate(candidate.user, experience, available_at, 0, wage_claim, "", "", Job(0, ""), 0)
+    }
+
     private fun getJobsTag(datas: List<String>) {
 
         jobsTabs.add("Serveur")
-        jobsTabs.add("Serveur")
-        jobsTabs.add("Serveur")
-        jobsTabs.add("Serveur")
-        jobsTabs.add("Serveur")
+        jobsTabs.add("Commis")
+        jobsTabs.add("Mixologue")
+        jobsTabs.add("Videur")
 
         for (data in datas) {
 

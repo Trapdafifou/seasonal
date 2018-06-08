@@ -55,11 +55,12 @@
     <string name="validationFormError">Erreur lors de l\'enregistrement</string>
     <string name="registerCandidateReviewLabelIdentity">Je suis</string>
     <string name="registerCandidateReviewLabelLocation">J\'habite à</string>
-    <string name="registerCandidateReviewLabelJob">Je suis</string>
+    <string name="registerCandidateReviewLabelJob">Je recherche un job à partir \n du</string>
     <string name="candidate_detail_edit_button">modifier</string>
     <string name="login_password_hint">entrez votre mot de passe</string>
     <string name="login_email_hint">entrez votre adresse mail</string>
     <string name="register_breadcrumb_step1">Perso</string>
     <string name="register_breadcrumb_step2">Pro</string>
     <string name="register_breadcrumb_step3">Validation</string>
+    <string name="registerCandidateReviewAvailable">Je recherche un job à partir du</string>
 </resources>

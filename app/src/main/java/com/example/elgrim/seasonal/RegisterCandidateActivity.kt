@@ -30,8 +30,8 @@ class RegisterCandidateActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterCandidate2Activity::class.java)
             val data = getData()
             if (validateData(data)) {
-                val candidateCreate = Candidate(User(1, data["lastName"].toString(), data["firstName"].toString(), data["email"].toString()), 0, "", 0, 0, "", "", Job(0, ""), 0)
-                intent.putExtra("step1_data", candidateCreate)
+                val candidateData = Candidate(User(1, data["lastName"].toString(), data["firstName"].toString(), data["email"].toString(), data["city"].toString()), 0, "", 0, 0, "", "", Job(0, ""), 0)
+                intent.putExtra("step1_data", candidateData)
                 startActivity(intent)
             } else {
                 registerCandidateStep1.isChecked = true
